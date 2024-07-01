@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: Zull-Cloud-Gateway
+    
+server:
+  port: 8989

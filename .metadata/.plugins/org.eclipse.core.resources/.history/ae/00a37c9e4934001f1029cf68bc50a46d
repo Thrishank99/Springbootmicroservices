@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/collegemicroservice
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+  cloud:
+    config:
+      discovery:
+        enabled: false
+  application:
+    name: COLLEGE-MICROSERVICE
+server:
+  port: 2025
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.int}
+    metadata-map:
+     nstanceId: ${spring.application.name}:${random.int}

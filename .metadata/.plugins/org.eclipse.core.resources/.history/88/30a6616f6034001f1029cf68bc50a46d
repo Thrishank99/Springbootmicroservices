@@ -1,0 +1,8 @@
+package com.org.microservice.service;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient(url="https://jsonplaceholder.typicode.com",name="USER_CLIENT")
+public interface UserClient {
+
+}

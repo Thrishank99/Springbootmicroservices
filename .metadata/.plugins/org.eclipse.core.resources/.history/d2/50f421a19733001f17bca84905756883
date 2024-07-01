@@ -1,0 +1,10 @@
+package com.org.microservice.serviceimpl;
+
+import org.springframework.stereotype.Component;
+
+import com.org.microservice.service.StudentService;
+
+@Component
+public class StudentServiceImpl implements StudentService{
+
+}

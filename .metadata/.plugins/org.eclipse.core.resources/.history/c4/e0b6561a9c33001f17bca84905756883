@@ -1,0 +1,22 @@
+package com.org.microservice.entity;
+
+import jakarta.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+public class College {
+	
+	private int collegeregId;
+	private String name;
+	private String location;
+	private String univercityName;
+	private int studentCount;
+
+}

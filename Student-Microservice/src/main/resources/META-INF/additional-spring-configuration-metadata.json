@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "spring.cloud.bootstrap.enable",
+  "type": "java.lang.String",
+  "description": "A description for 'spring.cloud.bootstrap.enable'"
+}]}

@@ -1,0 +1,25 @@
+package com.org.microservice.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.org.microservice.feign.dto.UserResponse;
+import com.org.microservice.service.UserClient;
+
+@RestController
+@Configuration
+public class FeignClientController {
+	
+	@Autowired
+	private UserClient userClient;
+	
+	@GetMapping("/findAllUsers")
+	public List<UserResponse> getUsers(){
+		return userClient.getUsers();
+	}
+
+}

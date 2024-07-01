@@ -1,0 +1,5 @@
+package com.org.microservice.entity;
+
+public class College {
+
+}

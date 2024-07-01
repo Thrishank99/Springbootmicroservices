@@ -1,0 +1,8 @@
+spring:
+  application:
+    name:  STUDENT-MICROSERVICE
+  cloud:
+    config:
+      uri:  http://localhost:9191
+      enabled: true      
+      fail-fast: false

@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: Zull-Cloud-Gateway
+  cloud:
+    gateway:
+      routes:
+        - id: student-microservice
+          uri: lb://STUDENT-MICROSERVICE
+          predicates:
+            - Path=/student/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: student-microservice
+                fallbackuri: forward:/studentFallBack
+        - id: college-microservice
+          uri: lb://COLLEGE-MICROSERVICE
+          predicates:
+            - Path=/college/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: college-microservice
+                fallbackuri: forward:/collegeFallback
+                
+
+server:
+  port: 8989
+  
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000  

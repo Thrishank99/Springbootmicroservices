@@ -1,0 +1,15 @@
+package com.org.microservice.serviceimpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.org.microservice.repository.StudentRepository;
+import com.org.microservice.service.StudentService;
+
+@Component
+public class StudentServiceImpl implements StudentService{
+	
+	@Autowired
+	private StudentRepository studentRepository;
+
+}

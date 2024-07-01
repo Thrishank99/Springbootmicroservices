@@ -1,0 +1,13 @@
+package com.org.feign.service;
+
+import java.util.List;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@FeignClient(url ="",name = "USER-CLIENT")
+public interface UserResponse {
+     
+	@GetMapping
+	public List<UserResponse> getAllUser();
+}

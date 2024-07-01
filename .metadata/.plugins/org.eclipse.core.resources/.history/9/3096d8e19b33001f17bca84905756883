@@ -1,0 +1,14 @@
+package com.org.microservice.serviceimpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.org.microservice.repository.CollegeRepository;
+import com.org.microservice.service.CollegeService;
+@Component
+public class CollegeServiceImpl implements CollegeService {
+	
+	@Autowired
+	private CollegeRepository collegeRepository;
+
+}

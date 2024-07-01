@@ -1,0 +1,13 @@
+package com.org.microservice;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class CollegeMicroservice1Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CollegeMicroservice1Application.class, args);
+	}
+
+}

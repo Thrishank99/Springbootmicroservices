@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: STUDENT-MICROSERVICE
+          uri: lb://STUDENT-MICROSERVICE
+          predicates:
+            - Path=/student/**
+          filters:
+          - name: CircuitBreaker
+            args:
+              name: STUDENT-MICROSERVICE
+              fallbackuri: forward:/StudentFallback
+          
+        - id: COLLEGE-MICROSERVICE
+          uri: lb://COLLEGE-MICROSERVICE
+          predicates:
+            - Path=/college/**
+          filters:
+          - name: CircuitBreaker
+            args:
+             name: COLLEGE-MICROSERVICE
+             fallbackuri: forward:/CollegeFallback
+             
+server:
+  port: 8989
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - hystrix.stream
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000 
+
+              

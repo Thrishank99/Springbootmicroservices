@@ -1,0 +1,11 @@
+package com.org.feign.service;
+
+import java.util.List;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient(url ="",name = "USER-CLIENT")
+public interface UserResponse {
+
+	public List<UserResponse> getAllUser();
+}

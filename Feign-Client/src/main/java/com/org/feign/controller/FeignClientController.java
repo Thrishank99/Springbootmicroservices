@@ -1,0 +1,28 @@
+package com.org.feign.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.org.feign.dto.UserResponse;
+import com.org.feign.service.UserClient;
+
+@RestController
+@RequestMapping("/feign")
+public class FeignClientController {
+	
+	@Autowired
+	private UserClient userClient ;
+	
+	
+	@GetMapping("/getAllUsers")
+	public List<UserResponse> getAllUsers(){
+		return userClient.getAllUser();
+		
+		
+	}
+
+}

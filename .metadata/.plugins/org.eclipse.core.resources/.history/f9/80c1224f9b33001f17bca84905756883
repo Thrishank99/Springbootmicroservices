@@ -1,0 +1,5 @@
+package com.org.microservice.service;
+
+public interface CollegeService {
+
+}

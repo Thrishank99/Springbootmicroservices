@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      mvc:
+        routes:
+        - id: STUDENT-MICROSERVICE
+          uri: lb://STUDENT-MICROSERVICE
+          predicates:
+          - Path=/student/**
+          filters:
+          - name: CircuitBreaker
+            args:
+             name: STUDENT-MICROSERVICE
+             fallbackuri: forward:/StudentFallback
+             
+        - id: COLLEGE-MICROSERVICE
+          uri: lb://COLLEGE-MICROSERVICE
+          predicates:
+          - Path=/college/**
+          filters:
+          - name: CircuitBreaker
+            args:
+             name: COLLEGE-MICROSERVICE
+             fallbackuri: forward:/CollegeFallback
+              

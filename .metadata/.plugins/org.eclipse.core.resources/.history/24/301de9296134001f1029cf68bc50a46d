@@ -1,0 +1,16 @@
+package com.org.microservice.service;
+
+import java.util.List;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.org.microservice.feign.dto.UserResponse;
+
+@FeignClient(url="https://jsonplaceholder.typicode.com",name="USER_CLIENT")
+public interface UserClient {
+	
+	@GetMapping("users")
+	public List<UserResponse> getUsers();
+
+}
